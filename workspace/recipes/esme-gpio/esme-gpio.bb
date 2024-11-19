@@ -19,6 +19,10 @@ inherit pkgconfig
 
 DEPENDS = "libgpiod (< 2.0)"
 
+INSANE_SKIP:${PN} += "ldflags"
+# when this question was originally asked the format was
+INSANE_SKIP_${PN} += "ldflags"
+
 # NOTE: this is a Makefile-only piece of software, so we cannot generate much of the
 # recipe automatically - you will need to examine the Makefile yourself and ensure
 # that the appropriate arguments are passed in.
