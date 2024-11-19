@@ -1,4 +1,3 @@
-# Recipe created by recipetool
 # This is the basis of a recipe and may need further editing in order to be fully functional.
 # (Feel free to remove these comments when editing.)
 
@@ -16,6 +15,13 @@ LIC_FILES_CHKSUM = ""
 SRC_URI = ""
 
 inherit pkgconfig
+inherit update-rc.d
+
+PACKAGES ??= "${PN}"
+INITSCRIPT_NAME = "esme-led"
+
+# Parameters for starting and stopping the service
+INITSCRIPT_PARAMS = "start 99 2 3 4 5 . stop 01 0 1 6 ."
 
 DEPENDS = "libgpiod (< 2.0)"
 
@@ -28,17 +34,16 @@ INSANE_SKIP_${PN} += "ldflags"
 # that the appropriate arguments are passed in.
 
 do_configure () {
-	# Specify any needed configure commands here
-	:
+        # Specify any needed configure commands here
+        :
 }
 
 do_compile () {
-	# You will almost certainly need to add additional arguments here
-	oe_runmake
+        # You will almost certainly need to add additional arguments here
+        oe_runmake
 }
 
 do_install () {
-	# This is a guess; additional arguments may be required
-	oe_runmake install INSTALL_DIR=${D}
+        # This is a guess; additional arguments may be required
+        oe_runmake install INSTALL_DIR=${D}
 }
-
