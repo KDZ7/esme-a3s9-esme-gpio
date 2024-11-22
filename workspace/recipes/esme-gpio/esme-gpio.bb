@@ -1,5 +1,10 @@
 LICENSE = "CLOSED"
 
+# No information for SRC_URI yet (only an external source tree was specified)
+SRC_URI = "git://github.com/KDZ7/esme-a3s9-esme-gpio.git;protocol=https;branch=main"
+PV = "1.0+git"
+SRCREV = "${AUTOREV}"
+
 inherit pkgconfig
 inherit update-rc.d
 
